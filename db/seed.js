@@ -35,9 +35,8 @@ async function createInitialUsers() {
     try {
         console.log("starting to create users...")
 
-        const albert = await createUser ({ username: 'albert', password: 'bertie99'});
-        const albertTwo = await createUser({ username: 'albert', password: 'imposter_albert' });
-        console.log(albert);
+        const sandra = await createUser({ username: 'sandra', password: 'glamgal' });
+        console.log(sandra);
         console.log("finished creating users")
     } catch (error) {
         console.error("error creating users")
