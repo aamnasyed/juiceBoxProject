@@ -68,4 +68,30 @@ DELETE /api/posts/:id
 
 GET /api/tags
 GET /api/tags/:tagName/posts
+
+TALAL's CODE: 
+async function getUserByUsername(username) {
+    try {
+      const { rows} = await client.query(`
+        SELECT *
+        FROM users
+        WHERE username=$1;
+      `,[username]);
+      console.log("This is the getUserByUsername function");
+        console.log(rows[0]);
+      
+      
+      if(rows.length){
+        console.log("user already exists");
+        rows[0].posts = await getPostsByUser(rows[0].id);
+        return rows[0];
+      }else{
+        return undefined;
+      }
+    //   return ;
+    } catch (error) {
+      throw error;
+    }
+  }
     
+    https://github.com/Talal-mahmoudi/JuiceBox 
